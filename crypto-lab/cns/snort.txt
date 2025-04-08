@@ -1,0 +1,25 @@
+sudo apt install snort
+
+1. Analyze packets , IP protocols
+
+sudo snort -v -i <your network hardware>
+
+2. Capture Alerts and Send to Administrator
+
+sudo gedit /etc/snort/rules/local.rules
+alert icmp any any -> any any (msg:"ICMP Packet Detected"; sid:1000001; rev:1;)
+sudo snort -A console -q -c /etc/snort/snort.conf -i <yourinterface>
+sudo snort -r snort.log.<filenumber>
+
+3. Detect Threats
+
+sudo gedit /etc/snort/rules/local.rules --- remove the existing rules
+sudo snort -T -c /etc/snort/snort.conf -i <yourinterface>
+sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i <yourinterface>
+sudo nmap -O ip
+cd /var/log/snort
+sudo snort -r snort.log.<filenumber>
+
+
+
+

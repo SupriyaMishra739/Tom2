@@ -1,0 +1,6 @@
+1. ports
+nmap -sV <target_IP>
+2. os
+nmap -O <target_ip>
+3.fake
+nmap -S <fakeip> <targetip>

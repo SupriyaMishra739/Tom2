@@ -1,0 +1,6 @@
+1. scan open ports
+msfconsole
+use auxiliary/scanner/portscan/tcp
+set RHOSTS <ip>
+set THREADS 10
+run
